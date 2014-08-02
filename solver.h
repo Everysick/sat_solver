@@ -2,12 +2,12 @@
 #define __SAT_H_
 
 template<class T>
-class SATSolver{
+class Solver{
+  T value_;
  public:
-  Hello(){}
-  ~Hello(){}
-  
-
+  Solver(const T & n);
+  ~Solver();
+  T get();
 };
 
 #endif
