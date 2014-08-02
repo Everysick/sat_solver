@@ -1,9 +1,0 @@
-#include "ruby/ruby.h"
-#include <iostream>
-
-using namespace std;
-
-void Init_SATSolver()
-{
-  cout << "Hello World!" << endl;
-}
