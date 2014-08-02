@@ -74,7 +74,6 @@ static int reverse_num(int n, const int base)
 
 VALUE wrap_solver_init(VALUE self)
 {
-  cout << "Hello World!" << endl;
   return Qnil;
 }
 
@@ -94,8 +93,6 @@ VALUE wrap_solve_sat(VALUE self, VALUE literal_num, VALUE boolean)
     int y = convert_num(NUM2INT(RARRAY_PTR(tag)[1]), c_literal_num) - 1;
     sat_solver.add(reverse_num(x, c_literal_num), y);
     sat_solver.add(reverse_num(y, c_literal_num), x);
-    cout << convert_num(NUM2INT(RARRAY_PTR(tag)[0]), c_literal_num) << endl;
-    cout << convert_num(NUM2INT(RARRAY_PTR(tag)[1]), c_literal_num) << endl;
   }
 
   sat_solver.build();
@@ -110,11 +107,6 @@ VALUE wrap_solve_sat(VALUE self, VALUE literal_num, VALUE boolean)
     }else{
       rb_ary_push(ret_comp, Qfalse);
     }
-  }
-
-  cout << "solved" << endl;
-  for(int i=1;i<=sat_solver.V;i++){
-    cout << sat_solver.comp[i] << endl;
   }
   return ret_comp;
 }
